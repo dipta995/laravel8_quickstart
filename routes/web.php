@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+//Customer Authontication Area
+Route::group(['middleware'=>['auth:sanctum','verified','auth',]],function(){
 Route::get('/', function () {
     return view('welcome');
+});
+
+});
+//Admin Authontication Area
+Route::group(['middleware'=>['auth:sanctum','verified','authadmin',]],function(){
+Route::get('/author', function () {
+    return view('admin.home');
+});
 });
