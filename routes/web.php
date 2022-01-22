@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\democontrol\BaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +34,7 @@ Route::group(['middleware'=>['auth:sanctum','verified','authadmin',]],function()
 Route::get('/author', function () {
     return view('admin.home');
 });
+
+Route::resource('/author', BaseController::class);
+
 });
